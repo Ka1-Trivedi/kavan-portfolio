@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Kavan Trivedi | Portfolio",
-  description: "Software Development Engineer Portfolio of Kavan Trivedi",
+  title: "Kavan Trivedi | Software Development Engineer",
+  description: "Portfolio of Kavan Trivedi — Full-Stack Software Developer specializing in Next.js, React, and scalable web applications.",
 };
-
-import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function RootLayout({
   children,
@@ -28,12 +29,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-white dark:bg-[#050505] text-slate-900 dark:text-slate-100 selection:bg-blue-500/30">
+      <body className="min-h-full flex flex-col bg-white dark:bg-[#050505] text-slate-900 dark:text-slate-100 selection:bg-violet-500/30 font-[family-name:var(--font-inter)]">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ThemeToggle />
+          <div className="flex justify-center w-full relative z-50 pt-6">
+            <Navbar />
+          </div>
           {children}
         </ThemeProvider>
       </body>

@@ -1,118 +1,113 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
-
-// Concept UI: Huge typography, stark contrast, grid lines, minimalist
-
-const GithubIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
-);
-
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-);
+import { ArrowUpRight } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
 };
 
-export function Hero() {
-  return (
-    <section className="min-h-[90vh] flex flex-col justify-center border-b border-black/10 dark:border-white/10 pb-20 pt-32 px-6 lg:px-12 relative overflow-hidden">
-      <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-6xl mx-auto w-full z-10">
-        <h1 className="text-[12vw] leading-[0.9] font-black tracking-tighter text-slate-900 dark:text-white mb-8">
-          KAVAN <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-800 dark:from-slate-400 dark:to-slate-100">TRIVEDI</span>
-        </h1>
-        
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mt-16 border-t border-black/10 dark:border-white/10 pt-8">
-          <div className="flex flex-col gap-2 font-mono text-sm uppercase tracking-widest text-slate-600 dark:text-slate-400">
-            <span className="flex items-center gap-2"><MapPin className="w-4 h-4"/> Gandhinagar, Gujarat</span>
-            <a href="tel:+919054427757" className="flex items-center gap-2 hover:text-black dark:hover:text-white transition-colors"><Phone className="w-4 h-4"/> +91 90544 27757</a>
-          </div>
-          
-          <div className="flex gap-6">
-            <a href="mailto:kavanmtrivedicomp@gmail.com" className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest hover:text-blue-500 transition-colors">
-              <Mail className="w-5 h-5" /> Email
-            </a>
-            <a href="https://linkedin.com/in/ka1-trivedi-17025k" target="_blank" rel="noreferrer" className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest hover:text-blue-500 transition-colors">
-              <LinkedinIcon className="w-5 h-5" /> LinkedIn
-            </a>
-            <a href="https://github.com/Ka1-Trivedi" target="_blank" rel="noreferrer" className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest hover:text-blue-500 transition-colors">
-              <GithubIcon className="w-5 h-5" /> GitHub
-            </a>
-          </div>
-        </div>
-      </motion.div>
+const sectionHeader = (num: string, title: string) => (
+  <div className="flex items-center gap-4 mb-14">
+    <span className="font-mono text-xs text-violet-500 dark:text-violet-400 uppercase tracking-[0.3em]">{num}</span>
+    <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 dark:text-white">{title}</h2>
+    <div className="flex-1 h-px bg-gradient-to-r from-violet-500/50 to-transparent" />
+  </div>
+);
 
-      {/* Abstract Background Elements */}
-      <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-500/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 -left-1/4 w-1/2 h-1/2 bg-pink-500/10 blur-[150px] rounded-full pointer-events-none" />
-    </section>
-  );
-}
+/* ─── EDUCATION ──────────────────────────────────────────── */
+export function EducationSection() {
+  const schools = [
+    { inst: "Pandit Deendayal Energy University", degree: "B.Tech — Computer Science & Engineering", score: "CGPA: 9.16", year: "2023 – 2027", color: "#8B5CF6" },
+    { inst: "Aradhana Vidya Vihar", degree: "Gujarat Board of Higher Secondary Education", score: "75.39 %", year: "2023", color: "#06B6D4" },
+    { inst: "St. Xavier's High School", degree: "Gujarat Board of Secondary Education", score: "91.00 %", year: "2021", color: "#10B981" },
+  ];
 
-export function Education() {
   return (
-    <section className="py-24 px-6 lg:px-12 border-b border-black/10 dark:border-white/10 max-w-7xl mx-auto w-full">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-        <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-slate-500 mb-12">01 / Education</h2>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
-          <div className="md:col-span-8">
-            <h3 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2 group-hover:translate-x-4 transition-transform duration-500">Pandit Deendayal Energy University</h3>
-            <p className="text-xl text-slate-600 dark:text-slate-400">Bachelor of Technology in Computer Science and Engineering</p>
-            <p className="text-sm font-mono text-slate-500 mt-4">CPI: 9.16 (Till 6th Semester)</p>
-          </div>
-          <div className="md:col-span-4 md:text-right font-mono text-sm text-slate-500 flex flex-col justify-between h-full">
-            <span>July 2023 - July 2027</span>
-            <span className="mt-2 md:mt-0">Gandhinagar, Gujarat</span>
-          </div>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
+    <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("01", "Education")}
+        <div className="relative border-l-2 border-slate-200 dark:border-white/10 pl-10 space-y-14">
+          {schools.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" as const }}
+              className="group relative"
+            >
+              {/* dot */}
+              <div className="absolute -left-[49px] top-1 w-4 h-4 rounded-full border-2 border-white dark:border-[#050505] shadow-lg transition-transform group-hover:scale-125"
+                style={{ background: s.color, boxShadow: `0 0 12px ${s.color}88` }} />
 
-export function Experience() {
-  return (
-    <section className="py-24 px-6 lg:px-12 border-b border-black/10 dark:border-white/10 max-w-7xl mx-auto w-full">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-        <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-slate-500 mb-12">02 / Experience</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          <div className="md:col-span-4 font-mono text-sm text-slate-500 mb-4 md:mb-0">
-            <span>15/05/26 - Ongoing</span>
-            <span className="block mt-2">Gandhinagar, Gujarat</span>
-          </div>
-          <div className="md:col-span-8 space-y-8">
-            <div>
-              <a href="https://drive.google.com/file/d/1e9ok69VMoMIKUSvYCnDMjfSF240SRKRy/view" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-4">
-                <h3 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">iNavLabs Pvt. Ltd.</h3>
-                <div className="p-3 rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-                  <ArrowUpRight className="w-6 h-6" />
+              <div className="p-6 md:p-8 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] hover:border-violet-400/40 transition-all duration-300 group-hover:-translate-y-1">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">{s.inst}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 mt-1">{s.degree}</p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <span className="font-mono text-sm text-slate-500">{s.year}</span>
+                    <p className="font-bold mt-1" style={{ color: s.color }}>{s.score}</p>
+                  </div>
                 </div>
-              </a>
-              <p className="text-xl text-slate-600 dark:text-slate-400 mt-2 font-light">Software Development Intern</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─── EXPERIENCE ─────────────────────────────────────────── */
+export function ExperienceSection() {
+  const bullets = [
+    "Delivered 2 client applications end-to-end as a Forward Deployment Engineer — an ERP system and a vending-machine platform — owning each client relationship from requirements through deployment.",
+    "Built several forward-deployment demo projects using the company's core product API to pitch to prospective leads including 2 proposals for PDEU; fixed critical cascading-delete and infinite-loop bugs.",
+    "AI Interview Platform — Built a full-stack voice-based mock-interview platform (Next.js, Supabase) with 4 selectable interviewer personas and ~400ms latency, 68% faster than the ~1250ms industry standard.",
+    "Maa ERP — Delivered a role-based ERP (Next.js, Supabase) for a mining & logistics client, digitizing paper-based billing with automated invoice generation, OCR challan auto-cropping, and ledger management.",
+  ];
+
+  return (
+    <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("02", "Experience")}
+
+        <div className="grid md:grid-cols-[200px_1fr] gap-10">
+          <div className="space-y-2 font-mono text-sm text-slate-500">
+            <p className="text-base font-bold text-slate-900 dark:text-white">15/05/26 – Ongoing</p>
+            <p>Gandhinagar, Gujarat</p>
+          </div>
+
+          <div className="group p-8 rounded-2xl bg-gradient-to-br from-violet-500/5 to-cyan-500/5 border border-slate-200 dark:border-white/[0.08] hover:border-violet-400/40 transition-all duration-300">
+            <div className="flex justify-between items-start mb-6 flex-wrap gap-3">
+              <div>
+                <a href="https://drive.google.com/file/d/1e9ok69VMoMIKUSvYCnDMjfSF240SRKRy/view" target="_blank" rel="noreferrer"
+                  className="flex items-center gap-3 group/link">
+                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white group-hover/link:text-violet-500 transition-colors">iNavLabs Pvt. Ltd.</h3>
+                  <div className="p-2 rounded-full bg-slate-100 dark:bg-white/5 group-hover/link:bg-violet-500 group-hover/link:text-white transition-all duration-300">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </a>
+                <p className="text-slate-600 dark:text-slate-400 mt-1 font-light">Software Development Intern</p>
+              </div>
             </div>
-            
-            <ul className="space-y-6 text-slate-700 dark:text-slate-300 text-lg leading-relaxed list-none">
-              <li className="relative pl-6">
-                <span className="absolute left-0 top-3 w-2 h-2 bg-slate-400 dark:bg-slate-600 rounded-full" />
-                Delivered 2 client applications end-to-end as a Forward Deployment Engineer -- an ERP system and a vending-machine distributor/operator platform -- owning each client relationship from requirements through deployment.
-              </li>
-              <li className="relative pl-6">
-                <span className="absolute left-0 top-3 w-2 h-2 bg-slate-400 dark:bg-slate-600 rounded-full" />
-                Built several forward-deployment demo projects using the company's core product API to pitch to prospective leads and clients, including 2 proposals presented to PDEU; fixed critical bugs such as a cascading-delete error and an infinite-loop bug that risked burning through a large volume of API tokens.
-              </li>
-              <li className="relative pl-6">
-                <span className="absolute left-0 top-3 w-2 h-2 bg-slate-400 dark:bg-slate-600 rounded-full" />
-                <strong className="text-slate-900 dark:text-white font-semibold">AI Interview Platform:</strong> Built a fully customizable full-stack voice-based mock-interview platform (Next.js, Supabase) supporting any interview subject, adjustable difficulty, and 4 selectable interviewer personas; powered by a custom voice API achieving ~400ms latency, 68% faster than the ~1250ms industry standard, with automated grading.
-              </li>
-              <li className="relative pl-6">
-                <span className="absolute left-0 top-3 w-2 h-2 bg-slate-400 dark:bg-slate-600 rounded-full" />
-                <strong className="text-slate-900 dark:text-white font-semibold">Maa ERP:</strong> Delivered a fully customized, role-based ERP (Next.js, Supabase) for a mining & logistics client, digitizing their entire paper-based billing system with automated invoice generation, OCR-based challan auto-cropping, and centralized ledger management.
-              </li>
+
+            <ul className="space-y-5">
+              {bullets.map((b, i) => (
+                <motion.li key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" as const }}
+                  className="relative pl-5 text-slate-700 dark:text-slate-300 leading-relaxed"
+                >
+                  <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-violet-400" />
+                  {b}
+                </motion.li>
+              ))}
             </ul>
           </div>
         </div>
@@ -121,155 +116,251 @@ export function Experience() {
   );
 }
 
-export function Projects() {
+/* ─── PROJECTS ───────────────────────────────────────────── */
+export function ProjectsSection() {
   const projects = [
     {
       title: "AlgoRank",
-      desc: "Competitive Programming Analytics Platform",
-      status: "Live Project",
-      tech: "Next.js, Tailwind CSS, Appwrite, Recharts, SheetJS",
+      sub: "Competitive Programming Analytics Platform",
       year: "2026",
+      status: "Live",
       link: "https://algo-rank.netlify.app/",
+      tech: ["Next.js", "Tailwind CSS", "Appwrite", "Recharts", "SheetJS"],
       bullets: [
         "Built a unified coding analytics dashboard aggregating LeetCode and Codeforces data with a custom AlgoScore, sortable leaderboards, and advanced filters.",
-        "Implemented OAuth with invite onboarding, optimized API sync via caching, and developed Recharts-powered performance analytics with Excel export support."
-      ]
+        "Implemented OAuth with invite onboarding, optimized API sync via caching, and Recharts-powered analytics with Excel export.",
+      ],
+      gradient: "from-violet-500/10 to-pink-500/10",
+      accent: "#8B5CF6",
     },
     {
       title: "Attendease",
-      desc: "Full-Stack Attendance & IA Management System",
-      status: "",
-      tech: "Flask, SQLite, HTML, CSS, JavaScript, Jinja",
+      sub: "Full-Stack Attendance & IA Management System",
       year: "2024",
+      status: "",
       link: "https://www.linkedin.com/posts/ka1-trivedi-17025k_attendease-flask-fullstackdevelopment-activity-7314213905247944704-G1WB",
+      tech: ["Flask", "SQLite", "HTML", "CSS", "JavaScript", "Jinja"],
       bullets: [
         "Built a role-based academic management platform for attendance and internal assessments.",
-        "Implemented anti-cheating tools, flexible attendance marking, CSV export, and a responsive UI."
-      ]
-    }
+        "Implemented anti-cheating tools, flexible attendance marking, CSV export, and a responsive UI.",
+      ],
+      gradient: "from-cyan-500/10 to-blue-500/10",
+      accent: "#06B6D4",
+    },
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-12 border-b border-black/10 dark:border-white/10 max-w-7xl mx-auto w-full">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-        <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-slate-500 mb-12">03 / Projects</h2>
-        
-        <div className="space-y-20">
-          {projects.map((proj, idx) => (
-            <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
-              <div className="md:col-span-4 font-mono text-sm text-slate-500 mb-4 md:mb-0 flex flex-col gap-2">
-                <span className="text-2xl text-slate-900 dark:text-white font-black">{proj.year}</span>
-                <span className="uppercase text-xs tracking-wider">{proj.tech}</span>
-              </div>
-              
-              <div className="md:col-span-8">
-                <a href={proj.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-4 mb-4 group-hover:translate-x-4 transition-transform duration-500">
-                  <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{proj.title}</h3>
-                  <div className="p-2 rounded-full border border-black/10 dark:border-white/10 group-hover:bg-blue-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
-                    <ArrowUpRight className="w-5 h-5" />
+    <section id="work" className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("03", "Projects")}
+
+        <div className="space-y-32 mt-16">
+          {projects.map((p, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" as const }}
+                className={`flex flex-col lg:flex-row items-center gap-16 group ${isEven ? "" : "lg:flex-row-reverse"}`}
+              >
+                {/* Project Image Placeholder */}
+                <a href={p.link} target="_blank" rel="noreferrer" className={`w-full lg:w-1/2 aspect-[4/3] rounded-3xl bg-gradient-to-br ${p.gradient} border border-slate-200 dark:border-white/[0.08] shadow-2xl relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 flex items-center justify-center`} style={{ borderColor: `${p.accent}30` } as React.CSSProperties}>
+                  <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05] dark:opacity-10 mix-blend-overlay" />
+                  <span className="font-bold text-4xl opacity-10" style={{ color: p.accent }}>{p.title}</span>
+                </a>
+
+                {/* Project Details */}
+                <div className="w-full lg:w-1/2 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">{p.title}</h3>
+                    {p.status && (
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">{p.status}</span>
+                    )}
                   </div>
-                </a>
-                
-                <p className="text-xl text-slate-600 dark:text-slate-400 mb-6 font-light">
-                  {proj.desc} {proj.status && <span className="ml-2 text-sm font-mono bg-green-500/10 text-green-600 dark:text-green-400 px-2 py-1 rounded">{proj.status}</span>}
-                </p>
-                
-                <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-lg leading-relaxed list-none">
-                  {proj.bullets.map((b, i) => (
-                    <li key={i} className="relative pl-6">
-                      <span className="absolute left-0 top-3 w-1.5 h-1.5 bg-slate-400 dark:bg-slate-600 rounded-sm" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+                  
+                  <p className="text-xl text-slate-600 dark:text-slate-400 font-light leading-relaxed">{p.sub}</p>
+                  
+                  <ul className="space-y-4">
+                    {p.bullets.map((b, bi) => (
+                      <li key={bi} className="relative pl-6 text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
+                        <span className="absolute left-0 top-3 w-2 h-2 rounded-full" style={{ background: p.accent }} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2 pt-4">
+                    {p.tech.map(t => (
+                      <span key={t} className="px-4 py-2 rounded-full text-sm font-medium bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </section>
   );
 }
 
-export function Skills() {
-  const categories = [
-    { name: "Programming Languages", skills: "C, C++, Java, Python, JavaScript, Node, JSP, Spring MVC" },
-    { name: "Developer Tools", skills: "GitHub, VS Code, Jupyter Notebook, Postman, pgAdmin, MySQL Workbench" },
-    { name: "Frameworks", skills: "Flask, Express.js, React.js" },
-    { name: "Cloud/Databases", skills: "PostgreSQL, MySQL, SQLite" },
-    { name: "Soft Skills", skills: "Problem Solving, Adaptability, Teamwork, Continuous Learning, Leadership, Communication" },
-    { name: "Core Fundamentals", skills: "DSA, OOPs, DBMS, Software Engineering, Web Development, Advance JAVA, Cloud Computing, Big Data Analysis" }
+/* ─── SKILLS ─────────────────────────────────────────────── */
+import { SkillsOrbit } from "./ui/skills-orbit";
+
+import Image from "next/image";
+
+export function SkillsSection() {
+  const Icon = ({ src, alt }: { src: string, alt: string }) => (
+    <Image src={src} alt={alt} width={24} height={24} className="object-contain" />
+  );
+
+  const languageItems = [
+    { name: "C", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />, color: "#00599C" },
+    { name: "C++", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />, color: "#00427f" },
+    { name: "Java", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />, color: "#f89820" },
+    { name: "Python", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />, color: "#3776AB" },
+    { name: "JavaScript", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />, color: "#F7DF1E" },
+    { name: "Node.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" />, color: "#339933" },
+    { name: "JSP", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" alt="JSP" />, color: "#c00" },
+    { name: "Spring", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" />, color: "#6DB33F" },
+  ];
+
+  const frameworkItems = [
+    { name: "React.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />, color: "#61DAFB" },
+    { name: "Next.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />, color: "#000000" },
+    { name: "Express.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />, color: "#888888" },
+    { name: "Flask", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" />, color: "#000000" },
+  ];
+
+  const dbCloudItems = [
+    { name: "PostgreSQL", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />, color: "#336791" },
+    { name: "MySQL", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />, color: "#4479A1" },
+    { name: "SQLite", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" />, color: "#003B57" },
+  ];
+
+  const toolItems = [
+    { name: "GitHub", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />, color: "#181717" },
+    { name: "VS Code", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />, color: "#007ACC" },
+    { name: "Jupyter", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" />, color: "#F37626" },
+    { name: "Postman", icon: <span className="text-xl">🚀</span>, color: "#FF6C37" },
+    { name: "pgAdmin", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="pgAdmin" />, color: "#336791" },
+  ];
+
+  const coreItems = [
+    { name: "DSA", icon: <span className="text-xl">🧠</span>, color: "#EF4444" },
+    { name: "OOPs", icon: <span className="text-xl">📦</span>, color: "#F59E0B" },
+    { name: "DBMS", icon: <span className="text-xl">🗄️</span>, color: "#10B981" },
+    { name: "Cloud", icon: <span className="text-xl">☁️</span>, color: "#3B82F6" },
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-12 border-b border-black/10 dark:border-white/10 max-w-7xl mx-auto w-full">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-        <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-slate-500 mb-12">04 / Technical Skills</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-          {categories.map((cat, idx) => (
-            <div key={idx} className="border-t border-black/10 dark:border-white/10 pt-4 group">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide group-hover:text-blue-500 transition-colors">{cat.name}</h3>
-              <p className="text-slate-600 dark:text-slate-400 font-light leading-relaxed">{cat.skills}</p>
-            </div>
-          ))}
+    <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5 overflow-hidden">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("04", "Technical Skills")}
+
+        <div className="grid md:grid-cols-2 gap-y-16 gap-x-8">
+          <SkillsOrbit category="Languages" items={languageItems} rx={160} ry={50} duration={20} />
+          <SkillsOrbit category="Frameworks" items={frameworkItems} rx={140} ry={45} duration={15} />
+          <SkillsOrbit category="DB & Cloud" items={dbCloudItems} rx={120} ry={40} duration={12} />
+          <SkillsOrbit category="Tools" items={toolItems} rx={150} ry={45} duration={18} />
+          <SkillsOrbit category="Core CS" items={coreItems} rx={130} ry={40} duration={14} />
         </div>
       </motion.div>
     </section>
   );
 }
 
-export function Achievements() {
+/* ─── ACHIEVEMENTS ───────────────────────────────────────── */
+export function AchievementsSection() {
   const items = [
-    { text: "Team Leader -- Smart India Hackathon (SIH), Nodal Round Qualifier (2025). Led a team to develop a Data Sanitization Platform for E-Waste Circular Economy (PS 25070), focusing on secure data removal from discarded electronic devices to enable safe reuse and recycling." },
-    { text: "NPTEL Ethical Hacking -- Elite + Gold (2025).", link: "https://drive.google.com/file/d/1Qjf75Fcthmi9VQkdza4sUjYOCdUom3ed/view" },
-    { text: "2nd Place -- ACM Hackathon, PDEU (2024).", link: "https://drive.google.com/file/d/1vOIwjYWQbSy5SpVLCtWsS6HwPl3g0aD8/view" },
-    { text: "LeetCode -- Solved 200+ DSA problems with a current rating of 1600+.", link: "https://leetcode.com/u/Ka1_trivedi/" }
+    { icon: "🏆", text: "Team Leader — Smart India Hackathon (SIH), Nodal Round Qualifier (2025). Led a team to develop a Data Sanitization Platform for E-Waste Circular Economy (PS 25070).", link: null },
+    { icon: "🛡️", text: "NPTEL Ethical Hacking — Elite + Gold (2025).", link: "https://drive.google.com/file/d/1Qjf75Fcthmi9VQkdza4sUjYOCdUom3ed/view" },
+    { icon: "🥈", text: "2nd Place — ACM Hackathon, PDEU (2024).", link: "https://drive.google.com/file/d/1vOIwjYWQbSy5SpVLCtWsS6HwPl3g0aD8/view" },
+    { icon: "💻", text: "LeetCode — Solved 200+ DSA problems with a current rating of 1600+.", link: "https://leetcode.com/u/Ka1_trivedi/" },
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-12 border-b border-black/10 dark:border-white/10 max-w-7xl mx-auto w-full">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-        <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-slate-500 mb-12">05 / Achievements & Leadership</h2>
-        
-        <ul className="space-y-6">
-          {items.map((item, idx) => (
-            <li key={idx} className="text-xl md:text-2xl font-light text-slate-800 dark:text-slate-200">
-              {item.link ? (
-                <a href={item.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-blue-500 transition-colors group">
-                  {item.text} <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              ) : (
-                <span>{item.text}</span>
-              )}
-            </li>
+    <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("05", "Achievements & Leadership")}
+
+        <div className="grid sm:grid-cols-2 gap-6">
+          {items.map((item, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" as const }}
+              className="group p-6 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] hover:border-amber-400/30 transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="flex gap-4 items-start">
+                <div className="text-3xl mt-1 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                <div className="flex-1">
+                  {item.link ? (
+                    <a href={item.link} target="_blank" rel="noreferrer"
+                      className="text-slate-800 dark:text-slate-200 leading-relaxed hover:text-violet-500 dark:hover:text-violet-400 transition-colors flex items-start gap-2 group/link">
+                      <span>{item.text}</span>
+                      <ArrowUpRight className="w-4 h-4 shrink-0 mt-1 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                    </a>
+                  ) : (
+                    <p className="text-slate-800 dark:text-slate-200 leading-relaxed">{item.text}</p>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </motion.div>
     </section>
   );
 }
 
-export function Certificates() {
+/* ─── CERTIFICATES ───────────────────────────────────────── */
+export function CertificatesSection() {
   const certs = [
-    { text: "AWS Skill Builder: AWS ML Engineer -- Associate Learning Plan (2026)", link: "https://drive.google.com/file/d/1gXBspwH5qbd6FU0ZDYdi7VJddE1sSS4P/view" },
-    { text: "NPTEL: Ethical Hacking (2025)", link: "https://drive.google.com/file/d/1Qjf75Fcthmi9VQkdza4sUjYOCdUom3ed/view" },
-    { text: "Harvard CS50's Introduction to Programming with Python (2022)", link: "https://drive.google.com/file/d/1RscR1ninPkTrW7MRkT8O_OexrqDSKT1w/view" }
+    { title: "AWS ML Engineer — Associate Learning Plan", year: "2026", issuer: "AWS Skill Builder", link: "https://drive.google.com/file/d/1gXBspwH5qbd6FU0ZDYdi7VJddE1sSS4P/view", color: "#F59E0B" },
+    { title: "Ethical Hacking (Elite + Gold)", year: "2025", issuer: "NPTEL", link: "https://drive.google.com/file/d/1Qjf75Fcthmi9VQkdza4sUjYOCdUom3ed/view", color: "#EF4444" },
+    { title: "CS50's Introduction to Programming with Python", year: "2022", issuer: "Harvard University", link: "https://drive.google.com/file/d/1RscR1ninPkTrW7MRkT8O_OexrqDSKT1w/view", color: "#8B5CF6" },
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-12 max-w-7xl mx-auto w-full mb-12">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-        <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-slate-500 mb-12">06 / Certificates</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {certs.map((cert, idx) => (
-            <a key={idx} href={cert.link} target="_blank" rel="noreferrer" className="group block p-8 border border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ArrowUpRight className="w-6 h-6 text-slate-900 dark:text-white" />
+    <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("06", "Certificates")}
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {certs.map((cert, i) => (
+            <motion.a key={i}
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" as const }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group block p-7 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] transition-all duration-300 relative overflow-hidden"
+              style={{ borderColor: `${cert.color}30` } as React.CSSProperties}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                style={{ background: cert.color, transform: "translate(30%, -30%)" }} />
+
+              <div className="flex justify-between items-start mb-5">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg font-bold"
+                  style={{ background: cert.color + "20", color: cert.color }}>
+                  ✦
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <p className="text-xl font-medium text-slate-900 dark:text-white mt-8">{cert.text}</p>
-            </a>
+
+              <p className="font-bold text-slate-900 dark:text-white mb-2 leading-snug">{cert.title}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">{cert.issuer}</p>
+              <p className="font-mono text-xs mt-3" style={{ color: cert.color }}>{cert.year}</p>
+            </motion.a>
           ))}
         </div>
       </motion.div>
