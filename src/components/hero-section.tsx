@@ -18,13 +18,14 @@ export function HeroSection() {
         
         {/* Massive Background Text */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none"
+          className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none select-none overflow-hidden"
         >
-          <h1 className="text-[25vw] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-slate-200 to-white dark:from-slate-800 dark:to-black font-serif italic opacity-60">
-            Kavan
+          <h1 className="text-[28vw] md:text-[18vw] font-bold leading-[0.8] tracking-tighter font-serif italic flex flex-col w-full items-center justify-center">
+            <span className="text-slate-300 dark:text-slate-800 md:-ml-[25%]">Kavan</span>
+            <span className="text-transparent [-webkit-text-stroke:2px_#cbd5e1] dark:[-webkit-text-stroke:2px_#1e293b] md:ml-[25%]">Trivedi</span>
           </h1>
         </motion.div>
 
@@ -37,18 +38,14 @@ export function HeroSection() {
             y: [50, -10, 0] 
           }}
           transition={{ duration: 2, times: [0, 0.6, 1], ease: "easeOut" }}
-          className="relative z-20 w-[300px] h-[400px] md:w-[400px] md:h-[500px] flex items-center justify-center mt-12"
+          className="relative z-20 w-[300px] h-[400px] md:w-[450px] md:h-[600px] flex items-center justify-center mt-12 md:mt-24"
         >
-          {/* Masking the black background with a radial gradient to soften edges */}
-          <div className="relative w-full h-full" style={{ 
-            WebkitMaskImage: "radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%)",
-            maskImage: "radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%)"
-          }}>
+          <div className="relative w-full h-full">
             <Image
-              src="/photo.png"
+              src="/ChatGPT Image Jul 9, 2026, 11_27_54 PM-Photoroom.png"
               alt="Kavan Trivedi"
               fill
-              className="object-cover"
+              className="object-contain object-bottom"
               priority
             />
           </div>

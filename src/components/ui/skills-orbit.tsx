@@ -70,24 +70,37 @@ export function SkillsOrbit({ category, items, rx = 120, ry = 40, duration = 15 
   }, [items.length, rx, ry, duration]);
 
   return (
-    <div 
-      className="relative flex items-center justify-center h-[250px] w-full"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="relative flex items-center justify-center h-[280px] w-full">
+      {/* Interactive Area (exact size of the orbit) */}
+      <div 
+        className="absolute rounded-full"
+        style={{ width: rx * 2, height: ry * 2 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Visible Orbit Path */}
+        <div className="absolute inset-0 border border-slate-200 dark:border-white/10 rounded-full" />
+      </div>
+
       {/* Center Category Label */}
-      <div className="absolute z-10 p-4 rounded-full bg-slate-900/50 dark:bg-black/50 backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.1)]">
-        <h3 className="text-sm font-bold tracking-widest uppercase text-slate-800 dark:text-slate-200 text-center">
+      <div 
+        className="absolute z-10 px-6 py-2 rounded-full bg-slate-800 dark:bg-black/80 backdrop-blur-md border border-slate-700 dark:border-white/20 shadow-2xl cursor-default"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <h3 className="text-sm font-bold tracking-widest uppercase text-white text-center">
           {category}
         </h3>
       </div>
 
-      <div ref={containerRef} className="absolute inset-0 flex items-center justify-center">
+      <div ref={containerRef} className="absolute inset-0 flex items-center justify-center pointer-events-none">
         {items.map((item, i) => (
           <div
             key={i}
-            className="orbit-node absolute flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors"
+            className="orbit-node absolute flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors pointer-events-auto"
             style={{ transformOrigin: "center center" }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             <div 
               className="flex items-center gap-3 px-4 py-2 rounded-full bg-slate-100/80 dark:bg-[#1a1a1a]/80 border border-slate-200/50 dark:border-white/10 backdrop-blur-md shadow-lg group hover:!scale-110 transition-transform duration-300 min-w-max"
