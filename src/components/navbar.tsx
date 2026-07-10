@@ -74,7 +74,7 @@ export function Navbar() {
               className="group flex items-center bg-[#1a1a1a] dark:bg-white rounded-full p-1 overflow-hidden transition-all duration-300 w-[40px] hover:w-[125px] cursor-pointer"
             >
               <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden shrink-0 relative">
-                <Image src="/ChatGPT Image Jul 9, 2026, 11_27_54 PM-Photoroom.png" alt="Avatar" fill className="object-cover scale-150 translate-y-1" />
+                <Image src="/ChatGPT Image Jul 10, 2026, 09_07_40 PM-Photoroom.png" alt="Avatar" fill className="object-cover scale-150 translate-y-1" />
               </div>
               <span className="text-white dark:text-black text-sm font-semibold whitespace-nowrap pl-2 pr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                 Let's Talk

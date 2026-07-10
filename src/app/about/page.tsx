@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -21,7 +20,6 @@ export default function AboutPage() {
             <ArrowLeft className="w-5 h-5" />
             Back to Home
           </Link>
-          <ThemeToggle />
         </div>
 
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="space-y-16">

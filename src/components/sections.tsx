@@ -209,7 +209,7 @@ export function ProjectsSection() {
 }
 
 /* ─── SKILLS ─────────────────────────────────────────────── */
-import { SkillsOrbit } from "./ui/skills-orbit";
+import { SkillsRow } from "./ui/skills-row";
 
 import Image from "next/image";
 
@@ -262,12 +262,12 @@ export function SkillsSection() {
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
         {sectionHeader("04", "Technical Skills")}
 
-        <div className="grid md:grid-cols-2 gap-y-24 gap-x-8 mt-12">
-          <SkillsOrbit category="Languages" items={languageItems} rx={180} ry={90} duration={20} />
-          <SkillsOrbit category="Frameworks" items={frameworkItems} rx={160} ry={80} duration={15} />
-          <SkillsOrbit category="DB & Cloud" items={dbCloudItems} rx={140} ry={70} duration={12} />
-          <SkillsOrbit category="Tools" items={toolItems} rx={170} ry={85} duration={18} />
-          <SkillsOrbit category="Core CS" items={coreItems} rx={150} ry={75} duration={14} />
+        <div className="flex flex-col gap-10 mt-12 w-full max-w-4xl mx-auto">
+          <SkillsRow category="Languages" items={languageItems} />
+          <SkillsRow category="Frameworks" items={frameworkItems} />
+          <SkillsRow category="DB & Cloud" items={dbCloudItems} />
+          <SkillsRow category="Tools" items={toolItems} />
+          <SkillsRow category="Core CS" items={coreItems} />
         </div>
       </motion.div>
     </section>

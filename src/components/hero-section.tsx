@@ -42,7 +42,7 @@ export function HeroSection() {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/ChatGPT Image Jul 9, 2026, 11_27_54 PM-Photoroom.png"
+              src="/ChatGPT Image Jul 10, 2026, 09_07_40 PM-Photoroom.png"
               alt="Kavan Trivedi"
               fill
               className="object-contain object-bottom"
