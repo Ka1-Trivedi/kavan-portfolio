@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
 
 const smoothTransition = {
-  type: "spring",
+  type: "spring" as const,
   stiffness: 150,
   damping: 20,
   mass: 0.8,
