@@ -34,8 +34,8 @@ export function Navbar() {
         transition={smoothTransition}
         className={`flex items-center justify-between pointer-events-auto transition-colors duration-500 ${
           isScrolled
-            ? "px-2 py-2 rounded-full bg-white/50 dark:bg-[#1c1c1e]/50 backdrop-blur-2xl backdrop-saturate-150 border border-white/50 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.08),inset_0_1px_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3),inset_0_1px_1px_0_rgba(255,255,255,0.15)] w-max min-w-[300px] md:min-w-[400px]"
-            : "px-6 md:px-12 py-4 rounded-none bg-transparent border-transparent shadow-none w-full max-w-7xl"
+            ? "px-2 py-2 rounded-full bg-white/[0.15] dark:bg-black/[0.15] backdrop-blur-[12px] border border-white/30 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] w-max min-w-[300px] md:min-w-[400px]"
+            : "px-6 md:px-12 py-4 rounded-3xl bg-white/[0.15] dark:bg-black/[0.15] backdrop-blur-[12px] border border-white/30 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] w-full max-w-7xl"
         }`}
       >
         <motion.div layout transition={smoothTransition} className={`flex items-center ${isScrolled ? "pl-2 gap-0" : "flex-1 gap-4"}`}>

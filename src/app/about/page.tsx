@@ -50,6 +50,9 @@ export default function AboutPage() {
               <a href="mailto:kavanmtrivedicomp@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" className="h-10" />
               </a>
+              <a href="https://github.com/Ka1-Trivedi" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+                <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" className="h-10" />
+              </a>
             </div>
           </div>
 
@@ -57,13 +60,13 @@ export default function AboutPage() {
           <div>
             <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white text-center mb-8">🏆 Competitive Programming</h3>
             <div className="flex justify-center gap-4 flex-wrap">
-              <a href="https://leetcode.com/u/Ka1_Trivedi/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+              <a href="https://leetcode.com/u/Ka1_trivedi/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode" className="h-10" />
               </a>
-              <a href="https://www.codechef.com/users/kavan17025k" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+              <a href="https://www.codechef.com/users/ka1_trivedi" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <img src="https://img.shields.io/badge/CodeChef-5B4638?style=for-the-badge&logo=codechef&logoColor=white" alt="CodeChef" className="h-10" />
               </a>
-              <a href="https://codeforces.com/profile/kavan17025k" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+              <a href="https://codeforces.com/profile/ka1_trivedi" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
                 <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" alt="Codeforces" className="h-10" />
               </a>
             </div>

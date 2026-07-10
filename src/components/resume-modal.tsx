@@ -47,7 +47,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </h2>
               <div className="flex items-center gap-3">
                 <a
-                  href="/resume (5).pdf"
+                  href="/Kavan_Resume.pdf"
                   download="Kavan_Trivedi_Resume.pdf"
                   className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg text-sm font-semibold transition-colors"
                 >
@@ -66,7 +66,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             {/* Content (PDF) */}
             <div className="flex-1 bg-slate-100 dark:bg-black p-2 md:p-6">
               <iframe
-                src="/resume (5).pdf"
+                src="/Kavan_Resume.pdf"
                 className="w-full h-full rounded-xl border border-slate-200 dark:border-white/5 shadow-inner bg-white"
                 title="Resume PDF"
               />
