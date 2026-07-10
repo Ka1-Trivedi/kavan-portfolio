@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#050505] text-slate-900 dark:text-slate-100">
       <HeroSection />
-      <EducationSection />
       <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
+      <EducationSection />
       <AchievementsSection />
       <CertificatesSection />
 

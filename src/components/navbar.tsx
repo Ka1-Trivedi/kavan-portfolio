@@ -6,8 +6,10 @@ import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
 
 const smoothTransition = {
-  duration: 0.6,
-  ease: [0.16, 1, 0.3, 1],
+  type: "spring",
+  stiffness: 150,
+  damping: 20,
+  mass: 0.8,
 };
 
 export function Navbar() {
@@ -33,23 +35,26 @@ export function Navbar() {
             : "px-6 md:px-12 py-4 rounded-none bg-transparent border-transparent shadow-none w-full max-w-7xl"
         }`}
       >
-        <motion.div layout transition={smoothTransition} className={`flex items-center gap-4 ${isScrolled ? "pl-2" : "flex-1"}`}>
+        <motion.div layout transition={smoothTransition} className={`flex items-center ${isScrolled ? "pl-2 gap-0" : "flex-1 gap-4"}`}>
           <motion.div layout transition={smoothTransition} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center overflow-hidden shadow-inner shrink-0">
              <span className="text-white font-serif italic font-bold text-lg">K</span>
           </motion.div>
-          <AnimatePresence mode="popLayout">
-            {!isScrolled && (
-              <motion.span 
-                initial={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }} 
-                animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} 
-                exit={{ opacity: 0, filter: "blur(4px)", scale: 0.95 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="font-serif italic font-bold text-xl hidden md:block dark:text-white"
-              >
-                Kavan Trivedi
-              </motion.span>
-            )}
-          </AnimatePresence>
+          <motion.div
+            initial={false}
+            animate={{
+              width: isScrolled ? 0 : "auto",
+              opacity: isScrolled ? 0 : 1,
+              filter: isScrolled ? "blur(4px)" : "blur(0px)",
+              scale: isScrolled ? 0.95 : 1,
+            }}
+            transition={smoothTransition}
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+            className="flex items-center"
+          >
+            <span className="font-serif italic font-bold text-xl hidden md:block dark:text-white">
+              Kavan Trivedi
+            </span>
+          </motion.div>
         </motion.div>
 
         <motion.nav layout transition={smoothTransition} className={`flex items-center gap-6 md:gap-10 text-sm font-semibold tracking-wide text-slate-700 dark:text-slate-300 ${isScrolled ? "px-6" : "justify-center"}`}>
