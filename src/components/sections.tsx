@@ -19,8 +19,8 @@ const sectionHeader = (num: string, title: string) => (
 export function EducationSection() {
   const schools = [
     { inst: "Pandit Deendayal Energy University", degree: "B.Tech — Computer Science & Engineering", score: "CGPA: 9.16", year: "2023 – 2027", color: "#8B5CF6" },
-    { inst: "Aradhana Vidya Vihar", degree: "Gujarat Board of Higher Secondary Education", score: "75.39 %", year: "2023", color: "#06B6D4" },
-    { inst: "St. Xavier's High School", degree: "Gujarat Board of Secondary Education", score: "91.00 %", year: "2021", color: "#10B981" },
+    { inst: "Aradhana Vidya Vihar", degree: "Gujarat Board of Higher Secondary Education", score: "75.38 %", year: "2023", color: "#06B6D4" },
+    { inst: "St. Xavier's High School", degree: "Gujarat Board of Higher Secondary Education", score: "91.00 %", year: "2021", color: "#10B981" },
   ];
 
   return (
@@ -71,7 +71,7 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+    <section id="work" className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
         {sectionHeader("02", "Experience")}
 
@@ -362,6 +362,37 @@ export function CertificatesSection() {
               <p className="font-mono text-xs mt-3" style={{ color: cert.color }}>{cert.year}</p>
             </motion.a>
           ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─── ABOUT ──────────────────────────────────────────── */
+export function AboutSection() {
+  return (
+    <section id="about" className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+        {sectionHeader("00", "About Me")}
+        <div className="space-y-12">
+          {/* Header Banners */}
+          <div className="flex flex-col items-center gap-6">
+            <a href="https://github.com/Ka1-Trivedi" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl hover:opacity-90 transition-opacity">
+              <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=2ea043&fontSize=54&height=90&width=602&text=Hello!%20I'm%20Kavan" alt="Hello! I'm Kavan" className="w-full" />
+            </a>
+            <img src="https://readme-typing-svg.demolab.com?font=Caveat&weight=600&size=26&pause=1000&color=a371f7&center=true&vCenter=true&width=760&height=44&lines=Code.%20Learn.%20Improve.%20Repeat.;Learning%20never%20stops%2C%20and%20neither%20does%20the%20code." alt="Typing headlines" className="w-full max-w-2xl" />
+          </div>
+
+          {/* Text Description */}
+          <div className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed text-center max-w-3xl mx-auto">
+            Software engineer driven by curiosity. I enjoy building products, exploring AI and systems, and learning something new with every project.
+          </div>
+
+          <div className="flex justify-center mt-8">
+            <a href="/about" className="px-8 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-bold transition-colors shadow-lg hover:shadow-violet-500/25">
+              Read More About Me
+            </a>
+          </div>
         </div>
       </motion.div>
     </section>
