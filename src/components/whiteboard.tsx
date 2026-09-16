@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { Eraser, Send, Undo2 } from "lucide-react";
+import { Eraser, Send } from "lucide-react";
 
 export function WhiteboardSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Kavan Trivedi | Software Development Engineer",
-  description: "Portfolio of Kavan Trivedi — Full-Stack Software Developer specializing in Next.js, React, and scalable web applications.",
+  description: "Portfolio of Kavan Trivedi — Software Development Engineer specializing in distributed systems, full-stack web applications, and machine learning.",
 };
 
 export default function RootLayout({

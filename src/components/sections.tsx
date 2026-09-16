@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -26,7 +27,7 @@ export function EducationSection() {
   return (
     <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto">
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-        {sectionHeader("01", "Education")}
+        {sectionHeader("04", "Education")}
         <div className="relative border-l-2 border-slate-200 dark:border-white/10 pl-10 space-y-14">
           {schools.map((s, i) => (
             <motion.div
@@ -71,9 +72,9 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section id="work" className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
+    <section id="experience" className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-        {sectionHeader("02", "Experience")}
+        {sectionHeader("01", "Experience")}
 
         <div className="grid md:grid-cols-[200px_1fr] gap-10">
           <div className="space-y-2 font-mono text-sm text-slate-500">
@@ -117,6 +118,12 @@ export function ExperienceSection() {
 }
 
 /* ─── PROJECTS ───────────────────────────────────────────── */
+const GithubIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+  </svg>
+);
+
 export function ProjectsSection() {
   const projects = [
     {
@@ -125,6 +132,9 @@ export function ProjectsSection() {
       year: "2026",
       status: "Live",
       link: "https://algo-rank.netlify.app/",
+      liveUrl: "https://algo-rank.netlify.app/",
+      liveLabel: "Live App",
+      githubUrl: null,
       tech: ["Next.js", "Tailwind CSS", "Appwrite", "Recharts", "SheetJS"],
       bullets: [
         "Built a unified coding analytics dashboard aggregating LeetCode and Codeforces data with a custom AlgoScore, sortable leaderboards, and advanced filters.",
@@ -134,11 +144,67 @@ export function ProjectsSection() {
       accent: "#8B5CF6",
     },
     {
+      title: "Mini Distributed File System (DFS)",
+      sub: "Fault-Tolerant Distributed Storage System modeled on Hadoop HDFS",
+      year: "2025",
+      status: "Systems",
+      link: "https://github.com/Ka1-Trivedi/DFS-implementation",
+      liveUrl: null,
+      liveLabel: undefined,
+      githubUrl: "https://github.com/Ka1-Trivedi/DFS-implementation",
+      tech: [
+        "Java",
+        "TCP Sockets",
+        "Custom Protocol",
+        "Multithreading",
+        "Streaming I/O",
+        "Failure Detection",
+        "Crash Recovery",
+        "Swing GUI",
+      ],
+      bullets: [
+        "Engineered a distributed storage system from scratch in Java using raw TCP socket programming, separating control plane (NameNode) from data plane (DataNodes) to prevent coordinator bottlenecks.",
+        "Implemented fixed-size chunking, 2x replication for fault tolerance, buffered streaming I/O, periodic heartbeat failure detection, and automatic background self-healing recovery.",
+        "Persisted cluster metadata to disk to survive NameNode restarts, and built a Java Swing ClientGUI validated across a multi-VM cluster with simulated network partitions.",
+      ],
+      gradient: "from-amber-500/10 to-orange-500/10",
+      accent: "#F59E0B",
+    },
+    {
+      title: "Sentiment Analysis Studio",
+      sub: "Deep Learning NLP Platform with Bi-LSTM & Flask REST API",
+      year: "2025",
+      status: "Live",
+      link: "https://sentiment-studio.onrender.com/",
+      liveUrl: "https://sentiment-studio.onrender.com/",
+      liveLabel: "Live Demo",
+      githubUrl: "https://github.com/daivagnaa/Sentiment-Studio",
+      tech: [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "Flask",
+        "Bidirectional LSTM",
+        "Gunicorn",
+        "Render",
+      ],
+      bullets: [
+        "Engineered a deep learning sentiment analysis model using a Bidirectional LSTM to classify text as Positive or Negative, trained on 1.6M tweets with custom text preprocessing, emoji handling, and vectorization.",
+        "Developed a responsive Flask web application featuring real-time prediction, REST API support, and confidence scoring.",
+        "Deployed the production Keras model on Render using Gunicorn for reliable, low-latency cloud inference.",
+      ],
+      gradient: "from-emerald-500/10 to-teal-500/10",
+      accent: "#10B981",
+    },
+    {
       title: "Attendease",
       sub: "Full-Stack Attendance & IA Management System",
       year: "2024",
-      status: "",
+      status: "Demo",
       link: "https://www.linkedin.com/posts/ka1-trivedi-17025k_attendease-flask-fullstackdevelopment-activity-7314213905247944704-G1WB",
+      liveUrl: "https://www.linkedin.com/posts/ka1-trivedi-17025k_attendease-flask-fullstackdevelopment-activity-7314213905247944704-G1WB",
+      liveLabel: "LinkedIn Demo",
+      githubUrl: null,
       tech: ["Flask", "SQLite", "HTML", "CSS", "JavaScript", "Jinja"],
       bullets: [
         "Built a role-based academic management platform for attendance and internal assessments.",
@@ -152,7 +218,7 @@ export function ProjectsSection() {
   return (
     <section id="work" className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5">
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-        {sectionHeader("03", "Projects")}
+        {sectionHeader("02", "Projects")}
 
         <div className="space-y-32 mt-16">
           {projects.map((p, i) => {
@@ -168,7 +234,7 @@ export function ProjectsSection() {
                 {/* Project Image Placeholder */}
                 <a href={p.link} target="_blank" rel="noreferrer" className={`w-full lg:w-1/2 aspect-[4/3] rounded-3xl bg-gradient-to-br ${p.gradient} border border-slate-200 dark:border-white/[0.08] shadow-2xl relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 flex items-center justify-center`} style={{ borderColor: `${p.accent}30` } as React.CSSProperties}>
                   <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05] dark:opacity-10 mix-blend-overlay" />
-                  <span className="font-bold text-4xl opacity-10" style={{ color: p.accent }}>{p.title}</span>
+                  <span className="font-bold text-3xl md:text-4xl text-center px-6 opacity-20 group-hover:opacity-40 transition-opacity" style={{ color: p.accent }}>{p.title}</span>
                 </a>
 
                 {/* Project Details */}
@@ -191,12 +257,38 @@ export function ProjectsSection() {
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2 pt-4">
+                  <div className="flex flex-wrap gap-2 pt-2">
                     {p.tech.map(t => (
-                      <span key={t} className="px-4 py-2 rounded-full text-sm font-medium bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
+                      <span key={t} className="px-3.5 py-1.5 rounded-full text-xs md:text-sm font-medium bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
                         {t}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Direct Action Links */}
+                  <div className="flex flex-wrap items-center gap-3 pt-4">
+                    {p.liveUrl && (
+                      <a
+                        href={p.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:opacity-90 transition-all shadow-md hover:-translate-y-0.5"
+                      >
+                        <span>{p.liveLabel || "Live Demo"}</span>
+                        <ArrowUpRight className="w-4 h-4" />
+                      </a>
+                    )}
+                    {p.githubUrl && (
+                      <a
+                        href={p.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-white/20 border border-slate-200 dark:border-white/10 transition-all hover:-translate-y-0.5"
+                      >
+                        <GithubIcon className="w-4 h-4" />
+                        <span>GitHub Repo</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -211,22 +303,20 @@ export function ProjectsSection() {
 /* ─── SKILLS ─────────────────────────────────────────────── */
 import { SkillsRow } from "./ui/skills-row";
 
-import Image from "next/image";
+const Icon = ({ src, alt }: { src: string, alt: string }) => (
+  <Image src={src} alt={alt} width={24} height={24} className="object-contain" />
+);
 
 export function SkillsSection() {
-  const Icon = ({ src, alt }: { src: string, alt: string }) => (
-    <Image src={src} alt={alt} width={24} height={24} className="object-contain" />
-  );
-
   const languageItems = [
     { name: "C", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />, color: "#00599C" },
     { name: "C++", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />, color: "#00427f" },
     { name: "Java", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />, color: "#f89820" },
     { name: "Python", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />, color: "#3776AB" },
     { name: "JavaScript", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />, color: "#F7DF1E" },
+    { name: "TypeScript", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />, color: "#3178C6" },
     { name: "Node.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" />, color: "#339933" },
     { name: "JSP", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" alt="JSP" />, color: "#c00" },
-    { name: "Spring", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" />, color: "#6DB33F" },
   ];
 
   const frameworkItems = [
@@ -234,12 +324,17 @@ export function SkillsSection() {
     { name: "Next.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />, color: "#000000" },
     { name: "Express.js", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />, color: "#888888" },
     { name: "Flask", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" />, color: "#000000" },
+    { name: "Spring", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" />, color: "#6DB33F" },
+    { name: "TensorFlow", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" />, color: "#FF6F00" },
+    { name: "Keras", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" alt="Keras" />, color: "#D00000" },
   ];
 
   const dbCloudItems = [
     { name: "PostgreSQL", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />, color: "#336791" },
     { name: "MySQL", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />, color: "#4479A1" },
     { name: "SQLite", icon: <Icon src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" />, color: "#003B57" },
+    { name: "Supabase", icon: <span className="text-xl">⚡</span>, color: "#3ECF8E" },
+    { name: "AWS", icon: <span className="text-xl">☁️</span>, color: "#FF9900" },
   ];
 
   const toolItems = [
@@ -254,13 +349,15 @@ export function SkillsSection() {
     { name: "DSA", icon: <span className="text-xl">🧠</span>, color: "#EF4444" },
     { name: "OOPs", icon: <span className="text-xl">📦</span>, color: "#F59E0B" },
     { name: "DBMS", icon: <span className="text-xl">🗄️</span>, color: "#10B981" },
-    { name: "Cloud", icon: <span className="text-xl">☁️</span>, color: "#3B82F6" },
+    { name: "Distributed Systems", icon: <span className="text-xl">🌐</span>, color: "#8B5CF6" },
+    { name: "Socket Programming", icon: <span className="text-xl">🔌</span>, color: "#06B6D4" },
+    { name: "Big Data", icon: <span className="text-xl">📊</span>, color: "#3B82F6" },
   ];
 
   return (
     <section className="py-28 px-6 lg:px-20 max-w-7xl mx-auto border-t border-slate-100 dark:border-white/5 overflow-hidden">
       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-        {sectionHeader("04", "Technical Skills")}
+        {sectionHeader("03", "Technical Skills")}
 
         <div className="flex flex-col gap-10 mt-12 w-full max-w-4xl mx-auto">
           <SkillsRow category="Languages" items={languageItems} />

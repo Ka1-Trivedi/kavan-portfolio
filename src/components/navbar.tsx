@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
@@ -62,7 +62,7 @@ export function Navbar() {
         </motion.div>
 
         <motion.nav layout transition={smoothTransition} className={`flex items-center gap-6 md:gap-10 text-sm font-semibold tracking-wide text-slate-700 dark:text-slate-300 ${isScrolled ? "px-6" : "justify-center"}`}>
-          <motion.a layout transition={smoothTransition} href="#work" className="hover:text-black dark:hover:text-white transition-colors">Work</motion.a>
+          <motion.a layout transition={smoothTransition} href="/#work" className="hover:text-black dark:hover:text-white transition-colors">Work</motion.a>
           <motion.a layout transition={smoothTransition} href="/about" className="hover:text-black dark:hover:text-white transition-colors">About</motion.a>
           <motion.a layout transition={smoothTransition} href="#" onClick={(e) => { e.preventDefault(); setIsResumeOpen(true); }} className="hover:text-black dark:hover:text-white transition-colors cursor-pointer">Resume</motion.a>
         </motion.nav>
@@ -70,14 +70,14 @@ export function Navbar() {
         <motion.div layout transition={smoothTransition} className={`flex items-center gap-3 shrink-0 ${isScrolled ? "pr-1" : "flex-1 justify-end"}`}>
           <motion.div layout transition={smoothTransition}>
             <a 
-              href="mailto:kavantrivedi@example.com" 
+              href="mailto:kavanmtrivedicomp@gmail.com" 
               className="group flex items-center bg-[#1a1a1a] dark:bg-white rounded-full p-1 overflow-hidden transition-all duration-300 w-[40px] hover:w-[125px] cursor-pointer"
             >
               <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden shrink-0 relative">
                 <Image src="/ChatGPT Image Jul 10, 2026, 09_07_40 PM-Photoroom.png" alt="Avatar" fill className="object-cover scale-150 translate-y-1" />
               </div>
               <span className="text-white dark:text-black text-sm font-semibold whitespace-nowrap pl-2 pr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                Let's Talk
+                Let&apos;s Talk
               </span>
             </a>
           </motion.div>

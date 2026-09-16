@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Mail, Phone, MapPin, Calendar, Languages, User } from "lucide-react";
 import Link from "next/link";
 
 const fadeUp = {
@@ -87,7 +87,11 @@ export default function AboutPage() {
               <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" className="h-8 hover:scale-105 transition-transform" />
+              <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" className="h-8 hover:scale-105 transition-transform" />
+              <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" className="h-8 hover:scale-105 transition-transform" />
+              <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" alt="Keras" className="h-8 hover:scale-105 transition-transform" />
+              <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white" alt="Spring" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" className="h-8 hover:scale-105 transition-transform" />
@@ -103,6 +107,84 @@ export default function AboutPage() {
               <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" className="h-8 hover:scale-105 transition-transform" />
               <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" className="h-8 hover:scale-105 transition-transform" />
+            </div>
+          </div>
+
+          {/* Personal & Contact Details */}
+          <div>
+            <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900 dark:text-white text-center mb-8">👤 Profile & Contact</h3>
+            <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4">
+              <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                <div className="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-500 flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="overflow-hidden">
+                  <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Primary Email</p>
+                  <a href="mailto:kavanmtrivedicomp@gmail.com" className="text-sm font-semibold text-slate-900 dark:text-white hover:text-violet-500 transition-colors truncate block">
+                    kavanmtrivedicomp@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="overflow-hidden">
+                  <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Academic Email (PDPU)</p>
+                  <a href="mailto:23bcp149@sot.pdpu.ac.in" className="text-sm font-semibold text-slate-900 dark:text-white hover:text-cyan-500 transition-colors truncate block">
+                    23bcp149@sot.pdpu.ac.in
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Phone</p>
+                  <a href="tel:+919054427757" className="text-sm font-semibold text-slate-900 dark:text-white hover:text-emerald-500 transition-colors">
+                    +91 90544 27757
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Location</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    Plot No. 610/1, Sector 3-C, Gandhinagar, Gujarat, India - 382006
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                <div className="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center shrink-0">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Date of Birth</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    17 Dec, 2005
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08]">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                  <Languages className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">Known Languages</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                    English
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
